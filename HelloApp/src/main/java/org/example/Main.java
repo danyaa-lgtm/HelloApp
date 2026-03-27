@@ -5,19 +5,14 @@ package org.example;
 public class Main {
     public static void main(String[] args) {
         StringBuilder nameBuilder = new StringBuilder();
-        boolean first = true;
         for (String name : args) {
-            if (!first) {
-                nameBuilder.append(", ");
-            }
-            nameBuilder.append(name);
-            first = false;
+            nameBuilder.append(name).append(", ");
         }
-        if (nameBuilder.isEmpty()) {
-            System.out.println("Hello, World!");
+        if (nameBuilder.length() > 0) {
+            String names = nameBuilder.substring(0, nameBuilder.length() - 2);
+            System.out.println("Hello, " + names + "!");
         } else {
-            System.out.println("Hello, " + nameBuilder.toString() + "!");
+            System.out.println("Hello, World!");
         }
-
     }
 }
